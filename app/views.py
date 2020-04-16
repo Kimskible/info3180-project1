@@ -45,17 +45,15 @@ def profile():
             gender = myForm.gender.data
             file = myForm.photo.data
             name, ext = os.path.splitext(secure_filename(file.filename))
-            print(ext)
             filename = hashlib.sha256(file.read()).hexdigest() + ext
             file.seek(0)
-            
+
             file.save(os.path.join(app.instance_path, app.config['UPLOAD_FOLDER'], filename))
             user = UserProfile(first_name,last_name,gender,email,location,biography,filename)
             db.session.add(user)
             db.session.commit()
             render_template('home.html')
             
-
     return render_template('profileForm.html',form=myForm)
 
 @app.route('/profiles')
@@ -65,8 +63,8 @@ def profiles():
     print(user_profiles)
     return render_template('profiles.html',user_profiles=user_profiles)
 
-@app.route('/specificProfile/<id>')
-def specificProfile(id):
+@app.route('//<id>')
+def (id):
     """Render the website's profile page."""
     user = db.session.query(UserProfile).filter_by(id=int(id)).first()
     if user == None:
