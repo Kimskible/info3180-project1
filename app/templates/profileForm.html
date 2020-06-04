@@ -7,22 +7,22 @@
 					Add Profile
 				</h3>
 
-        <div class="row" data-validate="Name is required">
+        <div class="row" data-validate="Required">
             <div class="col">
                 {{form.firstname.label(text="First Name")}} {{form.firstname(class="form-control",id="firstname")}}
             </div>
 
-            <div class="col" data-validate="Name is required">
+            <div class="col" data-validate="Required">
                 {{form.lastname.label(text="Last Name")}} {{form.lastname(class="form-control",id="lastname")}}
                 <span class="focus-input100"></span>
             </div>
         </div>
-        <div class="wrap-input100 validate-input" data-validate="Name is required">
+        <div class="wrap-input100 validate-input" data-validate="Required">
             {{form.location.label(text="Location")}} {{form.location(class="form-control",id="location")}}
             <span class="focus-input100"></span>
         </div>
 
-        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+        <div class="wrap-input100 validate-input" data-validate="Required">
             {{form.email.label(text="Email")}} {{form.email(class="form-control",type="email")}}
             <span class="focus-input100"></span>
         </div>
@@ -35,7 +35,7 @@
             <span class="focus-input100"></span>
         </div>
 
-        <div class="wrap-input100 validate-input" data-validate="Message is required">
+        <div class="wrap-input100 validate-input" data-validate="Required">
             {{form.biography.label(text="Biography")}} {{form.biography(class="form-control",rows="3")}}
             <span class="focus-input100"></span>
         </div>
