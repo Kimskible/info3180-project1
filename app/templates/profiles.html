@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block css %}
+{{super()}}
+<link rel="stylesheet"
+      href="{{url_for('static', filename='css/profilescard.css')}}">
+{% endblock %}
+
+{% block main %}
+
+
+
+     <div style="margin:0 auto; width: 50rem;">
+         <h2 >Profiles</h2>
+
+     {% for profile in user_profiles%}
+
+
+        
+        <div class="card" style="border-top:5px solid #007BFF; margin-bottom:6px; ">  
+               <div class="row" style="">
+                 
+                  <div class="col"> 
+                  <div clas="d-flex justify-content-center" style="padding-right: 55px;">
+                    <img src="{{ url_for('static', filename="uploads/"+profile.imagestr) }}" class="mr-3 mt-3 rounded-circle" style="width:200px;height:200px;"/>
+                    </div>
+                   </div> 
+                   <div class="col" style="justify-items: center;"> 
+                   <div clas="d-flex justify-content-center" style="padding-top:55px;">
+                    <h4>{{ profile.first_name }} {{ profile.last_name }}</h4>
+                    
+                    <p> <p style="display:inline"><img style="width: 20px;" src="{{ url_for('static', filename="images/user.svg") }}" /> {{ profile.gender }} </p>
+                     <p> <p style="display:inline"><img style="width: 20px;" src="{{ url_for('static', filename="images/location.svg") }}" /> {{ profile.location }} </p> 
+                    </div>
+                   </div> 
+                   <div class="row"> 
+                     <div clas="d-flex justify-content-center" style="padding-top: 55px;">
+                      <a href="{{ ('/specificProfile/'+(profile.id)|string) }}" class="btn btn-success">View Profile</a> 
+                     </div>
+                   </div> 
+             </div> 
+             </div>
+
+     
+  {% endfor %}
+  </div>
+
+
+{% endblock %}

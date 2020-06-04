@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block main %}
+ <div style="margin:0 auto; width: 50rem;">
+		<div class="card" style="border-top:5px solid #007BFF; margin-bottom:6px;">
+			<div class="row" style="">
+        
+            <div class="col">
+
+                <img src="{{ url_for('static', filename="uploads/"+user.imagestr) }}" class="mr-3 mt-3 rounded-circle" style="width:200px;height:200px;"/>
+
+            </div>
+
+            <div class="col">
+                <h4> {{ user.first_name }} {{user.last_name}}</h4>
+                <p>
+                    <p style="display:inline"><img src="{{ url_for('static',filename = 'images/At_sign.svg') }}" style="width: 20px;" alt=""></p> {{ user.email }}</p>
+                    <p>
+                        <p style="display:inline"><img src="{{ url_for('static',filename = 'images/location.svg') }}" style="width: 20px;"></p> {{ user.location }}</p>
+                    <p>
+                        <p style="display:inline"><img src="{{ url_for('static',filename = 'images/calendar.svg') }}" style="width: 20px;"></p> joined on {{ user.created_date.strftime('%Y-%m-%d') }}</p>
+            </div>
+        </div>
+        <div style="justify-items: center;" class="row">
+            <div  class ="col">
+            <h5  >About Me</h5>
+            
+            <p> {{ user.biography }} </p>
+            <p class="button-holder">
+                <button class="btn btn-success"> Send Message </button>
+                <button class="btn btn-primary"> Follow </button>
+            </p>
+
+        </div>
+
+    </div>
+</div>
+</div>
+{% endblock %}

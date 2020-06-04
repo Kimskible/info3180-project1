@@ -1,3 +1,23 @@
 body {
     padding-top: 5rem;
 }
+
+ul {
+    margin: 0 auto;
+    text-align: center;
+    display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+      grid-auto-rows: 400px;
+}
+
+li {
+    display: inline-block;
+    vertical-align: top;
+
+}
+body > main > div > ul > img{
+    height: 300px;
+    width: 300px;
+    
+}

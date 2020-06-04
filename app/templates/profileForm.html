@@ -1,0 +1,60 @@
+{% extends 'base.html' %} 
+{% block main %}
+<div class="card border-top border-primary" style="width: 50rem; padding:20px; margin:0 auto;">
+    <form class="contact100-form validate-form" action="{{ url_for('profile') }}" method="POST" enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        <h3 class="contact100-form-title">
+					Add Profile
+				</h3>
+
+        <div class="row" data-validate="Name is required">
+            <div class="col">
+                {{form.firstname.label(text="First Name")}} {{form.firstname(class="form-control",id="firstname")}}
+            </div>
+
+            <div class="col" data-validate="Name is required">
+                {{form.lastname.label(text="Last Name")}} {{form.lastname(class="form-control",id="lastname")}}
+                <span class="focus-input100"></span>
+            </div>
+        </div>
+        <div class="wrap-input100 validate-input" data-validate="Name is required">
+            {{form.location.label(text="Location")}} {{form.location(class="form-control",id="location")}}
+            <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+            {{form.email.label(text="Email")}} {{form.email(class="form-control",type="email")}}
+            <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 input100-select">
+            {{form.gender.label}} {{form.gender(class="form-control")}}
+            <div>
+
+            </div>
+            <span class="focus-input100"></span>
+        </div>
+
+        <div class="wrap-input100 validate-input" data-validate="Message is required">
+            {{form.biography.label(text="Biography")}} {{form.biography(class="form-control",rows="3")}}
+            <span class="focus-input100"></span>
+        </div>
+    
+            <div class="input-group pt-2">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+                </div>
+                <div class="custom-file">
+                    {{form.photo(class="custom-file-input",id="inputGroupFile01")}}
+                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                </div>
+            </div>
+
+       
+            <div class="wrap-contact100-form-btn pt-2">
+                {{form.submit(class="btn btn-primary mb-2")}}
+                </div>
+
+    </form>
+</div>
+{% endblock %}

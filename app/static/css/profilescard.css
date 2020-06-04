@@ -1,0 +1,60 @@
+ #card {
+    display: flex;
+    
+   
+    justify-content: center;
+    margin-top: 2%;
+}
+
+.section {
+    width: 75%;
+    border: 2px solid grey;
+    border-radius: 7px;
+    padding: 1.5%;
+    /*max-height: 170px;*/
+}
+.top {
+    display: flex;
+    margin-bottom: 5%;
+}
+.responsive {
+    width: 100%;
+    height: auto;
+    max-width: 150px;
+   
+  }
+
+  .top div:nth-child(2) img {
+      width: 7%;
+      margin-right: 2%;
+      /* vertical-align: -10%; */
+  } 
+
+  .top div:nth-child(2) {
+      margin-left: 2%;
+      width: 50%;
+  }
+
+  .image {
+       width: auto; 
+  }
+
+  .button-holder {
+      display: flex;
+      justify-content: space-around;
+  }
+
+  .button-holder button {
+      width: 45%;
+  }
+
+  .finish {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width:50%;
+  }
+
+  .finish a{
+      width: 20vw;
+  }
