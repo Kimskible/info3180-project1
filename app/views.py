@@ -63,8 +63,8 @@ def profiles():
     print(user_profiles)
     return render_template('profiles.html',user_profiles=user_profiles)
 
-@app.route('//<id>')
-def (id):
+@app.route('/specificProfile/<id>')
+def specificProfile(id):
     """Render the website's profile page."""
     user = db.session.query(UserProfile).filter_by(id=int(id)).first()
     if user == None:
