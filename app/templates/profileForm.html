@@ -1,18 +1,18 @@
 {% extends 'base.html' %} 
 {% block main %}
-<div class="card border-top border-primary" style="width: 50rem; padding:20px; margin:0 auto;">
+<div class="card" style="width: 50rem; padding:20px; margin:0 auto;">
     <form class="contact100-form validate-form" action="{{ url_for('profile') }}" method="POST" enctype="multipart/form-data">
         {{ form.csrf_token }}
         <h3 class="contact100-form-title">
-					Add Profile
+					Create Profile
 				</h3>
 
         <div class="row" data-validate="Required">
-            <div class="col">
+            <div class="col-12">
                 {{form.firstname.label(text="First Name")}} {{form.firstname(class="form-control",id="firstname")}}
             </div>
 
-            <div class="col" data-validate="Required">
+            <div class="col-12" data-validate="Required">
                 {{form.lastname.label(text="Last Name")}} {{form.lastname(class="form-control",id="lastname")}}
                 <span class="focus-input100"></span>
             </div>
