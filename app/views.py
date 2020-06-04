@@ -32,32 +32,31 @@ def about():
 
 @app.route('/profile', methods=['POST', 'GET'])
 def profile():
-    userForm = ProfileForm()
-    print(userForm)
+    myForm = ProfileForm()
+    print(myForm)
     
     if request.method == 'POST' :
-        if userForm.validate_on_submit():
-            first_name = userForm.firstname.data
-            last_name = userForm.lastname.data
-            location = userForm.location.data
-            email = userForm.email.data
-            biography = userForm.biography.data
-            gender = userForm.gender.data
-            file = userForm.photo.data
+        if myForm.validate_on_submit():
+            first_name = myForm.firstname.data
+            last_name = myForm.lastname.data
+            location = myForm.location.data
+            email = myForm.email.data
+            biography = myForm.biography.data
+            gender = myForm.gender.data
+            file = myForm.photo.data
             name, ext = os.path.splitext(secure_filename(file.filename))
             print(ext)
             filename = hashlib.sha256(file.read()).hexdigest() + ext
             file.seek(0)
             
-            file.save(os.path.join(
-            app.instance_path, app.config['UPLOAD_FOLDER'], filename))
+            file.save(os.path.join(app.instance_path, app.config['UPLOAD_FOLDER'], filename))
             user = UserProfile(first_name,last_name,gender,email,location,biography,filename)
             db.session.add(user)
             db.session.commit()
             render_template('home.html')
             
 
-    return render_template('profileForm.html',form=userForm)
+    return render_template('profileForm.html',form=myForm)
 
 @app.route('/profiles')
 def profiles():
